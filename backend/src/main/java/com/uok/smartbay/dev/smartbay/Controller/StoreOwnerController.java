@@ -6,15 +6,13 @@ import com.uok.smartbay.dev.smartbay.Repository.RoleRepository;
 import com.uok.smartbay.dev.smartbay.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200",allowedHeaders = "*")
 public class StoreOwnerController {
     @Autowired
     UserRepository userRepository;
@@ -26,13 +24,13 @@ public class StoreOwnerController {
     BCryptPasswordEncoder passwordEncoder;
 
     @PostMapping("/addOwner")
-    public String addStoreOwner(@RequestBody User user){
+    public User addStoreOwner(@RequestBody User user){
         String encryptPwd = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptPwd);
         Role userRole = roleRepository.findByRole("STORE_OWNER");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
-        return "Store Owner added successfully";
+        return user;
     }
 
     @GetMapping("/abc")
