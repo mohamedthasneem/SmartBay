@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { CustomerModule } from './Module/customer/customer.module';
 import { StoreOwnerModule } from './Module/store-owner/store-owner.module';
 import { AdminModule } from './Module/admin/admin.module';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
