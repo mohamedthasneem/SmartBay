@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from 'G:/Development-Project/SmartBay/frontend/src/app/Module/customer/Model/customer';
-import {CustomerService} from 'G:/Development-Project/SmartBay/frontend/src/app/Module/customer/Service/customer.service';
 import {Router} from '@angular/router';
+import { Customer } from 'src/app/Module/customer/Model/customer';
+import { CustomerService } from 'src/app/Module/customer/Service/customer.service';
 
 @Component({
   selector: 'app-customer-signup',

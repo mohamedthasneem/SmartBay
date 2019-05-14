@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {StoreOwner} from 'G:/Development-Project/SmartBay/frontend/src/app/Module/store-owner/Model/store-owner';
-import {StoreOwnerService} from 'G:/Development-Project/SmartBay/frontend/src/app/Module/store-owner/Service/store-owner.service';
+import { StoreOwnerService } from 'src/app/Module/store-owner/Service/store-owner.service';
+import { StoreOwner } from 'src/app/Module/store-owner/Model/store-owner';
 
 
 @Component({
