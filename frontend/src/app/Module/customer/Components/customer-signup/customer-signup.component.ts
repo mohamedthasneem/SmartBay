@@ -15,7 +15,8 @@ export class CustomerSignupComponent implements OnInit {
     lastName : '',
     email : '',
     telNumber : '',
-    password : ''
+    password : '',
+    address : ''
   }
   constructor(private _customerService : CustomerService,private _router : Router) { }
 

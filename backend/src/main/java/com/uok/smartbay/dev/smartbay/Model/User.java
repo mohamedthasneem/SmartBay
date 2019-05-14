@@ -18,11 +18,20 @@ public class User {
     private String password;
     @DBRef
     private Set<Role> roles;
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public User() {
     }
 
-    public User(ObjectId id, String firstName, String lastName, String email, String telNumber, String password, Set<Role> roles) {
+    public User(ObjectId id, String firstName, String lastName, String email, String telNumber, String password, Set<Role> roles, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,6 +39,7 @@ public class User {
         this.telNumber = telNumber;
         this.password = password;
         this.roles = roles;
+        this.address = address;
     }
 
     public ObjectId getId() {

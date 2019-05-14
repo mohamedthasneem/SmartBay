@@ -3,5 +3,6 @@ export class Customer {
     lastName : string;
     email : string;
     telNumber : string;
-    password : string
+    password : string;
+    address : string
 }
