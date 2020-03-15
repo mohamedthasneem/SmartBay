@@ -1,0 +1,16 @@
+<h1>Add New Product</h1>
+
+<form>
+  <label for="name">Product Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Store Name" [(ngModel)]="product.productName" name="name">
+
+  <label for="owner">Product Price</label>
+  <input type="text" class="form-control" id="owner" placeholder="Store Owner" name="owner" [(ngModel)]="product.productPrice">
+
+    <br>
+    <input type="file" (change)="onFileChanged($event)">
+    <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+
+  <br>
+  <button type="button" class="btn btn-success" (click)="addNewProduct()">Add Product</button>
+</form>

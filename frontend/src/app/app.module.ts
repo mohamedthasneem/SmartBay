@@ -3,24 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomerModule } from './Module/customer/customer.module';
-import { StoreOwnerModule } from './Module/store-owner/store-owner.module';
-import { AdminModule } from './Module/admin/admin.module';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AddStoreComponent } from './Modules/store-owner/add-store/add-store.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { AddProductComponent } from './Modules/store-owner/add-product/add-product.component';
+import { ViewStoreComponent } from './Modules/customer/view-store/view-store.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AddStoreComponent,
+    AddProductComponent,
+    ViewStoreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CustomerModule,
-    StoreOwnerModule,
-    AdminModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule   
     
   ],
   providers: [],
