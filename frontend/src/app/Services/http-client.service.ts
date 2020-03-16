@@ -10,9 +10,11 @@ import { Product } from '../Models/product';
 export class HttpClientService {
 
   private baseURL = 'http://localhost:8080/add-product';
+  private baseURL2 = 'http://localhost:8080/view-products'
   constructor(private httpClient: HttpClient) { }
 
   Stores : Store[] = [];
+  Products : Product[] =[];
 
   addStore(newStore: any) {
     return this.httpClient.post<Store>('http://localhost:8080/add-store', newStore);
@@ -24,5 +26,9 @@ export class HttpClientService {
 
   getAllStores(){
     return this.httpClient.get<Store[]>('http://localhost:8080/view-stores');
+  }
+
+  viewStoreProducts(id:string){
+    return this.httpClient.get<Product[]>(`${this.baseURL2}/${id}`);
   }
 } 

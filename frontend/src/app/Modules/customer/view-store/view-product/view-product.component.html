@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <th>Product Name</th>
+    <th>Product Price</th>
+    <th>Product Image</th>
+    
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.productName}}</td>
+      <td>{{product.productPrice}}</td>
+         
+      <td><img src="{{product.retrievedImage}}" height="200" width="200"></td>
+    </tr>
+  </tbody>
+</table>

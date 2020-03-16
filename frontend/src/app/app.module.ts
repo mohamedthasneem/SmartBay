@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AddProductComponent } from './Modules/store-owner/add-product/add-product.component';
 import { ViewStoreComponent } from './Modules/customer/view-store/view-store.component';
+import { ViewProductComponent } from './Modules/customer/view-store/view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ViewStoreComponent } from './Modules/customer/view-store/view-store.com
     FooterComponent,
     AddStoreComponent,
     AddProductComponent,
-    ViewStoreComponent
+    ViewStoreComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

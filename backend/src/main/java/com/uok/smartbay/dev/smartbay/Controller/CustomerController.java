@@ -1,5 +1,6 @@
 package com.uok.smartbay.dev.smartbay.Controller;
 
+import com.uok.smartbay.dev.smartbay.Model.Product;
 import com.uok.smartbay.dev.smartbay.Model.Role;
 import com.uok.smartbay.dev.smartbay.Model.Store;
 import com.uok.smartbay.dev.smartbay.Model.User;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -28,6 +31,8 @@ public class CustomerController {
 
     @Autowired
     StoreRepository storeRepository;
+
+    @Autowired
 
     @GetMapping("/welcome")
     public String welcome(){
@@ -55,4 +60,12 @@ public class CustomerController {
         //System.out.println(bookRepository.findAll());
         return storeRepository.findAll();
     }
+
+    @GetMapping("/view-products/{id}")
+    public List<Product> viewProducts(@PathVariable(value = "id") String storeId) throws IOException {
+        Store store = storeRepository.findById(storeId).get();
+
+        return store.getProductList();
+    }
+
 }
