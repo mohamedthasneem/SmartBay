@@ -12,6 +12,7 @@ export class HttpClientService {
   private baseURL = 'http://localhost:8080/add-product';
   constructor(private httpClient: HttpClient) { }
 
+  Stores : Store[] = [];
 
   addStore(newStore: any) {
     return this.httpClient.post<Store>('http://localhost:8080/add-store', newStore);
@@ -21,4 +22,7 @@ export class HttpClientService {
     return this.httpClient.patch<Product>(`${this.baseURL}/${id}`, newProduct);
   }
 
-}
+  getAllStores(){
+    return this.httpClient.get<Store[]>('http://localhost:8080/view-stores');
+  }
+} 

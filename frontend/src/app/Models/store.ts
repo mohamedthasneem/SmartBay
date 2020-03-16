@@ -1,7 +1,8 @@
+
 export class Store {
-    name: string;
-    owner: string;
-    productList:number;
+    storeName: string;
+    storeOwner: string;
+    //productList:Array<>;
     picByte: string;
     retrievedImage: string;
 }

@@ -1,3 +1,15 @@
-<p>
-  view-store works!
-</p>
+<table>
+  <thead>
+    <th>Store Name</th>
+    <th>Store Owner</th>
+    <th>Image</th>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let store of stores">
+      <td>{{store.storeName}}</td>
+      <td>{{store.storeOwner}}</td>    
+      <td><img src="{{store.retrievedImage}}" height="200" width="200"></td>
+    </tr>
+  </tbody>
+</table>

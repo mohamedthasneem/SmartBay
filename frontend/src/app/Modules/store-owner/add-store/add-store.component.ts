@@ -13,6 +13,7 @@ export class AddStoreComponent implements OnInit {
   store = {
     "storeName" : "",
     "storeOwner" : "",
+    "productList":null,
     "picByte":""
   };
 
