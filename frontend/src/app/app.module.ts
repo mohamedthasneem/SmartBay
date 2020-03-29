@@ -13,6 +13,9 @@ import {FormsModule} from '@angular/forms';
 import { AddProductComponent } from './Modules/store-owner/add-product/add-product.component';
 import { ViewStoreComponent } from './Modules/customer/view-store/view-store.component';
 import { ViewProductComponent } from './Modules/customer/view-store/view-product/view-product.component';
+import { CartComponent } from './Modules/customer/cart/cart.component';
+import { ShoppingCartItemComponent } from './Modules/customer/shopping-cart-item/shopping-cart-item.component';
+import { ShoppingItemListComponent } from './Modules/customer/shopping-item-list/shopping-item-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { ViewProductComponent } from './Modules/customer/view-store/view-product
     AddStoreComponent,
     AddProductComponent,
     ViewStoreComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    CartComponent,
+    ShoppingCartItemComponent,
+    ShoppingItemListComponent
   ],
   imports: [
     BrowserModule,

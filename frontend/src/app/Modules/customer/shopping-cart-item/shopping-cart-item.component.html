@@ -1,0 +1,13 @@
+<div class="thumbnail">
+  <img src="https://www.gannett-cdn.com/presto/2018/10/19/PBRE/d25f200a-77c7-444b-aa43-30ef0e8158e5-Books.jpg?crop=2459,1386,x0,y272&width=3200&height=1680&fit=bounds" class="fixwidth" alt="product image" />
+  <div class="caption clearfix">
+    <h5>{{product.name}}</h5>
+    <div class="product__price">{{product.price}} {{product.quantity}}</div>
+    <div class="product__button-wrap">
+        <button  *ngIf="product.added"  (click)="RemoveProduct(product)" class="btn btn-primary">Remove
+        </button>
+        <button   *ngIf="!product.added" (click)="AddProduct(product)" class="btn btn-primary">Add to cart
+         </button>
+      </div>
+  </div>
+</div>
