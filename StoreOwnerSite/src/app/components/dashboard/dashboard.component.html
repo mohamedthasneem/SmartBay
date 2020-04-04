@@ -21,19 +21,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" routerLink="/dashboard/orders">
             <span data-feather="file"></span>
             Orders
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" routerLink="/dashboard/products">
             <span data-feather="shopping-cart"></span>
             Products
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" routerLink="/dashboard/customers">
             <span data-feather="users"></span>
             Customers
           </a>
@@ -100,7 +100,12 @@
           This week
         </button>
       </div>
+      
     </div>
+
+    
+    <router-outlet></router-outlet>
+    
 
     <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
