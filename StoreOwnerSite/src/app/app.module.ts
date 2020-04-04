@@ -14,6 +14,9 @@ import { AddProductComponent } from './components/dashboard/product/add-product/
 import { ViewProductComponent } from './components/dashboard/product/view-product/view-product.component';
 import { ViewCustomerComponent } from './components/dashboard/customer/view-customer/view-customer.component';
 import { ViewOrderComponent } from './components/dashboard/order/view-order/view-order.component';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ViewOrderComponent } from './components/dashboard/order/view-order/view
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

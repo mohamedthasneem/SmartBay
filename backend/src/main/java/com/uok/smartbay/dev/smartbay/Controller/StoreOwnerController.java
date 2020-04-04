@@ -57,7 +57,6 @@ public class StoreOwnerController {
 
     @PostMapping("/add-store")
     public void createStore(@RequestBody Store store) throws IOException {
-        store.setPicByte(this.bytes);
         storeRepository.save(store);
         this.bytes = null;
     }

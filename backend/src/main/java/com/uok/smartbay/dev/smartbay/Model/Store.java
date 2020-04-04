@@ -11,10 +11,13 @@ import java.util.List;
 public class Store {
     @Id
     private ObjectId id;
-    private String storeName;
-    private String storeOwner;
+    private String username;
+    private String email;
+    private String password;
+    private String shopName;
+    private String address;
+    private String telephoneNumber;
     private List<Product> productList;
-    private byte[] picByte;
 
     public ObjectId getId() {
         return id;
@@ -24,20 +27,52 @@ public class Store {
         this.id = id;
     }
 
-    public String getStoreName() {
-        return storeName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getStoreOwner() {
-        return storeOwner;
+    public String getEmail() {
+        return email;
     }
 
-    public void setStoreOwner(String storeOwner) {
-        this.storeOwner = storeOwner;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
     public List<Product> getProductList() {
@@ -46,14 +81,6 @@ public class Store {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
-    }
-
-    public byte[] getPicByte() {
-        return picByte;
-    }
-
-    public void setPicByte(byte[] picByte) {
-        this.picByte = picByte;
     }
 
     public void updateProductList(Product product){

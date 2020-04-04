@@ -5,29 +5,29 @@
   <h1 class="h3 mb-3 font-weight-normal text-center">Register</h1>
   
   <b>Username</b>
-  <input type="text" id="inputUsername" class="form-control"  required autofocus>
+  <input type="text" id="inputUsername" name="inputUsername" class="form-control" [(ngModel)]="storeowner.username" required autofocus>
 
   <b>Email</b>
-  <input type="email" id="inputEmail" class="form-control"  required autofocus>
+  <input type="email" id="inputEmail" name="inputEmail" class="form-control" [(ngModel)]="storeowner.email" required autofocus>
   
   <b>Password</b>
-  <input type="password" id="inputPassword" class="form-control"  required autofocus>
+  <input type="password" id="inputPassword" name="inputPassword" class="form-control" [(ngModel)]="storeowner.password" required autofocus>
 
   <b>Shop Name</b>
-  <input type="text" id="inputShopname" class="form-control"  required autofocus>
+  <input type="text" id="inputShopname" name="inputShopname" class="form-control" [(ngModel)]="storeowner.shopName" required autofocus>
   
   <b>Address</b>
-  <input type="text" id="inputAddress" class="form-control"  required autofocus>
+  <input type="text" id="inputAddress" name="inputAddress" class="form-control" [(ngModel)]="storeowner.address" required autofocus>
 
   <b>Telephone Number</b>
-  <input type="text" id="inputTelno" class="form-control"  required autofocus>
+  <input type="text" id="inputTelno" name="inputTelno" class="form-control" [(ngModel)]="storeowner.telephoneNumber"required autofocus>
 
   <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+  <button class="btn btn-lg btn-primary btn-block" type="button" (click)="addNewStore()">Register</button>
   
 </form>
 </div>
