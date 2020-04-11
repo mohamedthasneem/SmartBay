@@ -7,16 +7,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "product")
 public class Product {
     @Id
-    private ObjectId id;
+    private int id;
     private String productName;
     private float productPrice;
     private byte[] picByte;
 
-    public ObjectId getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(ObjectId id) {
+    public void setId(int id) {
         this.id = id;
     }
 

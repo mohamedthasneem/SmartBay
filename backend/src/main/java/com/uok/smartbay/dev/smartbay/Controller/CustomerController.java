@@ -55,6 +55,16 @@ public class CustomerController {
                 ;
     }
 
+    @PostMapping("/add-storeowner")
+    public User addStoreOwner(@RequestBody User user){
+        String encryptPwd = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encryptPwd);
+        Role userRole = roleRepository.findByRole("STOREOWNER");
+        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        userRepository.save(user);
+        return user
+                ;
+    }
     @GetMapping("/view-stores")
     public List<Store> getAllStores() {
         //System.out.println(bookRepository.findAll());

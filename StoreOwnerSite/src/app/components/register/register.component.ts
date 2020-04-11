@@ -30,7 +30,8 @@ export class RegisterComponent implements OnInit {
 
   addNewStore() {
     this.storeOwnerService.register(this.storeowner).subscribe(data =>{
-      data = this.storeowner
+      data = this.storeowner;
+      localStorage.setItem('email',data.email);
     });
   }
 }

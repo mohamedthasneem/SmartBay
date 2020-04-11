@@ -12,4 +12,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  email = localStorage.getItem('email');
+
+  signOut(){
+    localStorage.removeItem('email');
+  }
 }

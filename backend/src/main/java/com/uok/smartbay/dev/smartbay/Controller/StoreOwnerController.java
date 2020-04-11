@@ -1,9 +1,6 @@
 package com.uok.smartbay.dev.smartbay.Controller;
 
-import com.uok.smartbay.dev.smartbay.Model.Product;
-import com.uok.smartbay.dev.smartbay.Model.Role;
-import com.uok.smartbay.dev.smartbay.Model.Store;
-import com.uok.smartbay.dev.smartbay.Model.User;
+import com.uok.smartbay.dev.smartbay.Model.*;
 import com.uok.smartbay.dev.smartbay.Repository.RoleRepository;
 import com.uok.smartbay.dev.smartbay.Repository.StoreRepository;
 import com.uok.smartbay.dev.smartbay.Repository.UserRepository;
@@ -35,15 +32,7 @@ public class StoreOwnerController {
 
     private byte[] bytes;
 
-//    @PostMapping("/addOwner")
-//    public User addStoreOwner(@RequestBody User user){
-//        String encryptPwd = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(encryptPwd);
-//        Role userRole = roleRepository.findByRole("STORE_OWNER");
-//        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-//        userRepository.save(user);
-//        return user;
-//    }
+
 
     @GetMapping("/abc")
     public String hi(){
@@ -61,9 +50,22 @@ public class StoreOwnerController {
         this.bytes = null;
     }
 
-    @PatchMapping("/add-product/{id}")
-    public String addProduct(@RequestBody Product product,@PathVariable(value = "id") String storeId) throws IOException {
-        Store store = storeRepository.findById(storeId).get();
+    @GetMapping("/role")
+    public void setRole(){
+        Role role1 = new Role();
+        role1.setRole("CUSTOMER");
+
+        Role role2 = new Role();
+        role2.setRole("STOREOWNER");
+
+        roleRepository.save(role1);
+        roleRepository.save(role2);
+    }
+
+
+    @PutMapping("/add-product/{email}")
+    public String addProduct(@RequestBody Product product,@PathVariable(value = "email") String storeEmail) throws IOException {
+        Store store = storeRepository.findByEmail(storeEmail);
         List<Product> prList = new ArrayList();
         product.setPicByte(this.bytes);
         prList.add(product);
@@ -75,7 +77,23 @@ public class StoreOwnerController {
         //this.bytes = null;
     }
 
+    @PostMapping("/store-owner/login")
+    public String storeOwnerLogin(@RequestBody User userInfo){
+        User user = userRepository.findByEmail(userInfo.getEmail());
+        String message = "Not LoggedIn";
+        User loggedUser = new User();
+        if(user.getPassword().equals(userInfo.getPassword())){
+            return "Success";
+        }else {
+            return "Fail";
+        }
+    }
 
-
+    @GetMapping("/products/all/{email}")
+    public List<Product> getAllProducts(@PathVariable(value = "email") String storeEmail){
+        Store store = storeRepository.findByEmail(storeEmail);
+        List<Product> productList = store.getProductList();
+        return productList;
+    }
 
 }
