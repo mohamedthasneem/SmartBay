@@ -1,9 +1,7 @@
 package com.uok.smartbay.dev.smartbay.Controller;
 
-import com.uok.smartbay.dev.smartbay.Model.Product;
-import com.uok.smartbay.dev.smartbay.Model.Role;
-import com.uok.smartbay.dev.smartbay.Model.Store;
-import com.uok.smartbay.dev.smartbay.Model.User;
+import com.uok.smartbay.dev.smartbay.Model.*;
+import com.uok.smartbay.dev.smartbay.Repository.CustomerRepository;
 import com.uok.smartbay.dev.smartbay.Repository.RoleRepository;
 import com.uok.smartbay.dev.smartbay.Repository.StoreRepository;
 import com.uok.smartbay.dev.smartbay.Repository.UserRepository;
@@ -33,6 +31,9 @@ public class CustomerController {
     StoreRepository storeRepository;
 
     @Autowired
+    CustomerRepository customerRepository;
+
+    @Autowired
 
     @GetMapping("/welcome")
     public String welcome(){
@@ -44,38 +45,22 @@ public class CustomerController {
         return "Hello";
     }
 
-    @PostMapping("/add")
-    public User addCustomer(@RequestBody User user){
-        String encryptPwd = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encryptPwd);
-        Role userRole = roleRepository.findByRole("CUSTOMER");
-        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-        userRepository.save(user);
-        return user
-                ;
+
+    @PostMapping("/{storeId}/customer/register")
+    public void customerSignup(@RequestBody Customer customer,@PathVariable(value = "storeId") String storeId) throws IOException {
+        customer.setStore(storeRepository.findById(storeId).get());
+        customerRepository.save(customer);
     }
 
-    @PostMapping("/add-storeowner")
-    public User addStoreOwner(@RequestBody User user){
-        String encryptPwd = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encryptPwd);
-        Role userRole = roleRepository.findByRole("STOREOWNER");
-        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-        userRepository.save(user);
-        return user
-                ;
-    }
-    @GetMapping("/view-stores")
-    public List<Store> getAllStores() {
-        //System.out.println(bookRepository.findAll());
-        return storeRepository.findAll();
+    @PostMapping("/{storeId}/customer/login")
+    public String customerLogin(@RequestBody Customer customer,@PathVariable(value = "storeId") String storeId){
+        return "Success";
     }
 
-    @GetMapping("/view-products/{id}")
-    public List<Product> viewProducts(@PathVariable(value = "id") String storeId) throws IOException {
+    @GetMapping("/{storeId}/view-products")
+    public List<Product> viewProducts(@PathVariable(value = "storeId") String storeId){
         Store store = storeRepository.findById(storeId).get();
-
-        return store.getProductList();
+        List<Product> storeProductList = store.getProductList();
+        return storeProductList ;
     }
-
 }
