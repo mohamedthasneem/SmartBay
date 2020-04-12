@@ -1,3 +1,18 @@
-<p>
-  view-customer works!
-</p>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Contact Number</th>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.username}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.telephoneNumber}}</td>      
+    </tr>
+  </tbody>
+</table>

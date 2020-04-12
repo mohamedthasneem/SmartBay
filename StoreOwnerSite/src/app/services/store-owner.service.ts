@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StoreOwner } from '../models/store-owner';
 import { Product } from '../models/product';
+import { Customer } from '../models/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class StoreOwnerService {
   private baseURL = 'http://localhost:8080/add-product';
 
   Products : Product[] = [];
+  Customers : Customer[] = [];
 
   constructor(private httpClient: HttpClient) {
 
@@ -30,5 +32,9 @@ export class StoreOwnerService {
 
   addProduct(newProduct : any,email : string){
     return this.httpClient.put<Product>(`${this.baseURL}/${email}`,newProduct);
+  }
+
+  viewStoreCustomers(email:string){
+    return this.httpClient.get<Customer[]>('http://localhost:8080/customers/all/'+`${email}`);
   }
 }

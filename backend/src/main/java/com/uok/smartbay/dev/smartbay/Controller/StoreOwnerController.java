@@ -1,6 +1,7 @@
 package com.uok.smartbay.dev.smartbay.Controller;
 
 import com.uok.smartbay.dev.smartbay.Model.*;
+import com.uok.smartbay.dev.smartbay.Repository.CustomerRepository;
 import com.uok.smartbay.dev.smartbay.Repository.RoleRepository;
 import com.uok.smartbay.dev.smartbay.Repository.StoreRepository;
 import com.uok.smartbay.dev.smartbay.Repository.UserRepository;
@@ -16,7 +17,7 @@ import java.util.HashSet;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200",allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4400",allowedHeaders = "*")
 public class StoreOwnerController {
     @Autowired
     UserRepository userRepository;
@@ -29,6 +30,9 @@ public class StoreOwnerController {
 
     @Autowired
     StoreRepository storeRepository;
+
+    @Autowired
+    CustomerRepository customerRepository;
 
     private byte[] bytes;
 
@@ -94,6 +98,13 @@ public class StoreOwnerController {
         Store store = storeRepository.findByEmail(storeEmail);
         List<Product> productList = store.getProductList();
         return productList;
+    }
+
+    @GetMapping("/customers/all/{email}")
+    public List<Customer> getAllCustomers(@PathVariable(value = "email") String storeEmail){
+        Store store = storeRepository.findByEmail(storeEmail);
+        List<Customer> customerList = customerRepository.findByStore(store);
+        return customerList;
     }
 
 }

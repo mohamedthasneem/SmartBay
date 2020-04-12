@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/models/customer';
+import { StoreOwnerService } from 'src/app/services/store-owner.service';
 
 @Component({
   selector: 'app-view-customer',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCustomerComponent implements OnInit {
 
-  constructor() { }
+  private customers : Customer[];
+  email = localStorage.getItem('email');
+
+  constructor(private storeOwnerService : StoreOwnerService) { }
 
   ngOnInit() {
+    this.storeOwnerService.viewStoreCustomers(this.email).subscribe(customers=>
+      {
+
+      this.customers = customers})
   }
 
 }
