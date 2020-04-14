@@ -1,3 +1,15 @@
-<p>
-  home works!
-</p>
+<table>
+  <thead>
+    <th>Store Id</th>
+    <th>Shop Name</th>
+    <th>Action</th>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let store of stores">
+      <td>{{store.id}}</td>
+      <td>{{store.shopName}}</td>
+      <td><button routerLink="/{{store.shopName}}">View</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -46,21 +46,28 @@ public class CustomerController {
     }
 
 
-    @PostMapping("/{storeId}/customer/register")
+    @PostMapping("/{storeName}/customer/register")
     public void customerSignup(@RequestBody Customer customer,@PathVariable(value = "storeId") String storeId) throws IOException {
         customer.setStore(storeRepository.findById(storeId).get());
         customerRepository.save(customer);
     }
 
-    @PostMapping("/{storeId}/customer/login")
-    public String customerLogin(@RequestBody Customer customer,@PathVariable(value = "storeId") String storeId){
+    @PostMapping("/{storeName}/customer/login")
+    public String customerLogin(@RequestBody Customer customer,@PathVariable(value = "storeName") String storeName){
         return "Success";
     }
 
-    @GetMapping("/{storeId}/view-products")
-    public List<Product> viewProducts(@PathVariable(value = "storeId") String storeId){
-        Store store = storeRepository.findById(storeId).get();
+    @GetMapping("/{storeName}/view-products")
+    public List<Product> viewProducts(@PathVariable(value = "storeName") String storeName){
+        Store store = storeRepository.findByShopName(storeName);
         List<Product> storeProductList = store.getProductList();
         return storeProductList ;
     }
+
+    @GetMapping("/stores")
+    public List<Store> viewStores(){
+        List<Store> storeList = storeRepository.findAll();
+        return storeList;
+    }
+
 }
