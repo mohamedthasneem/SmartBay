@@ -1,0 +1,16 @@
+<div>
+    <form class="form-signin">
+  
+  <h1 class="h3 mb-3 font-weight-normal text-center">Login</h1>
+  
+  <b>Email</b>
+  <input type="text" id="inputEmail" name="inputEmail" class="form-control" [(ngModel)]="customer.email" required autofocus>
+
+  <b>Password</b>
+  <input type="password" id="inputPassword" name="inputPassword" class="form-control" [(ngModel)]="customer.password" required autofocus>
+
+  <button class="btn btn-lg btn-primary btn-block" type="button" (click)="login()">Login</button>
+  
+</form>
+</div>
+

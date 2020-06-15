@@ -1,0 +1,21 @@
+<table>
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Image</th>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productCategory}}</td>
+        <td>{{product.productPrice}}</td>      
+        <td><img src="{{product.retrievedImage}}" height="200" width="200"></td>
+        <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button></td>
+        <td><button class="btn btn-info" (click)="updateProduct(product.id,product)">Update</button></td>
+      </tr>
+    </tbody>
+  </table>

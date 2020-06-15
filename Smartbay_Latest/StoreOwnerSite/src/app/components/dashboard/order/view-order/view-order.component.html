@@ -1,0 +1,21 @@
+<table>
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Date</th>
+      <th>Billing Address</th>
+      <th>ProductList</th>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{order.orderId}}</td>
+        <td>{{order.firstName}}</td>
+        <td>{{order.email}}</td>
+        <td></td>
+        <td>{{order.billingAddress}}</td>
+        <td>{{order.productList}}</td>  
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,26 @@
+<div>
+    <form class="form-signin">
+  
+  <h1 class="h3 mb-3 font-weight-normal text-center">Register</h1>
+  
+  <b>Username</b>
+  <input type="text" id="inputUsername" name="inputUsername" class="form-control" [(ngModel)]="customer.username" required autofocus>
+
+  <b>Email</b>
+  <input type="email" id="inputEmail" name="inputEmail" class="form-control" [(ngModel)]="customer.email" required autofocus>
+  
+  <b>Password</b>
+  <input type="password" id="inputPassword" name="inputPassword" class="form-control" [(ngModel)]="customer.password" required autofocus>
+
+  <b>Address</b>
+  <input type="text" id="inputAddress" name="inputAddress" class="form-control" [(ngModel)]="customer.address" required autofocus>
+
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="button" (click)="signup()">Register</button>
+  
+</form>
+</div>

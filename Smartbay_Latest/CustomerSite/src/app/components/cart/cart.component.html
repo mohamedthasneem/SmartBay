@@ -1,0 +1,33 @@
+<div id="collapseExample">
+    <div class="card">
+        <div class="card-body">
+            <h1 style="color: chartreuse;">Items in your cart : <span style="margin-left: 35%; color: cyan;">Total value : {{cartTotal}}</span></h1>
+            <table class="table table-bordered table-responsive table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Image</th>
+                        <th>Name & Description</th> 
+                        <th>Price</th> 
+                        <th>Quantity</th> 
+                        <th>Add/Remove</th> 
+                        <th>Total For Item</th>             
+                    </tr>
+                </thead>
+                <tr *ngFor="let product of cartItems">
+                    <td><img src="{{product.retrievedImage}}" width="250px" height="270px" /></td>
+                    <td class="text-center">{{product.productName}}</td>
+                    <td>{{product.productPrice}}</td>
+                    <td>{{product.productQuantity}}</td>
+                    <td>
+                         <div class="form-inline">
+                            <button type="button" (click)="onAddQuantity(product)" class="btn btn-success">+</button>
+
+                            <button type="button" (click)="onRemoveQuantity(product)" class="btn btn-danger">-</button>
+                        </div>
+                    </td>
+                    <td>{{product.productPrice * product.productQuantity}}</td>    
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
