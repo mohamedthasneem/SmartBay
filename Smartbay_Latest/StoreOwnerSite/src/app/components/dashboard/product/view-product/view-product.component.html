@@ -1,21 +1,43 @@
-<table>
+<br><br>  
+      
+<div class="row">  
+    <div class="form-group col-md-offset-4 col-md-4">   
+        
+            <table>  
+                <tr>  
+                    <td> <input type="text"  placeholder="Enter name" class="form-control" [(ngModel)]="searchTerm"> </td>  
+                    <td><button class="btn btn-primary hidden-xs" (click)="Search()">Search</button></td>  
+                </tr>  
+            </table>  
+      
+    </div>  
+</div>  
+  
+<br><br>
+  
+  <table class="table table-hover table-dark">
     <thead>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Image</th>
+        <tr >  
+          <th>Id</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Image</th>
+          </tr> 
     </thead>
-    
     <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{product.id}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.productCategory}}</td>
-        <td>{{product.productPrice}}</td>      
-        <td><img src="{{product.retrievedImage}}" height="200" width="200"></td>
-        <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button></td>
-        <td><button class="btn btn-info" (click)="updateProduct(product.id,product)">Update</button></td>
-      </tr>
+        <ng-container *ngFor="let product of products">   
+          <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productCategory}}</td>
+            <td>{{product.productPrice}}</td>      
+            <td><img src="{{product.retrievedImage}}" height="200" width="200"></td>
+            <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button></td>
+            <td><button class="btn btn-info" (click)="updateProduct(product.id,product)">Update</button></td>
+          </tr>
+        </ng-container>
     </tbody>
   </table>
+
+    

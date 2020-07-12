@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
     "password" : ""
   };
 
+  productIds : [];
+
   constructor(private customerService : CustomerService,private router: Router,
     private httpClient: HttpClient) { }
 
@@ -29,12 +31,15 @@ export class LoginComponent implements OnInit {
         console.log(res)
         console.log(res.status)
         localStorage.setItem('token',res.token)
+        localStorage.setItem('email',this.customer.email)
         this.router.navigate(['/products'])
       },
       err =>{
         this.router.navigate(['/login'])
         console.log("Error : "+err)
       })
+
+      
   }
 
 }

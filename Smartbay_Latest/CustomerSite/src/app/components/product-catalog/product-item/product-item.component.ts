@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { CustomerService } from 'src/app/services/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-item',
@@ -15,7 +16,7 @@ export class ProductItemComponent implements OnInit {
   productAddedToCart : Product[];
   cartItemCount : number;
 
-  constructor(private customerService : CustomerService) { }
+  constructor(private customerService : CustomerService,private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -40,5 +41,9 @@ export class ProductItemComponent implements OnInit {
         console.log("Product already exists")
       }
     }
+  }
+
+  rateProduct(productItem:Product,id:string){
+    this.router.navigate(['/product/rating',id])  
   }
 }

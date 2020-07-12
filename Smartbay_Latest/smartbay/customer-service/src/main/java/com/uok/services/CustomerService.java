@@ -1,9 +1,6 @@
 package com.uok.services;
 
-import com.uok.common.LoginRequest;
-import com.uok.common.Order;
-import com.uok.common.Product;
-import com.uok.common.SignupRequest;
+import com.uok.common.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -20,4 +17,12 @@ public interface CustomerService {
     Order addOrder(Order order);
 
     List<Product> searchProduct(String productName);
+
+    Rating saveProductRating(Rating rating);
+
+    List<Integer> getAllOrders(String email);
+
+    List<Product> getProductsByIdList(List<Integer> productIds);
+
+    List<User> getAllCustomers();
 }

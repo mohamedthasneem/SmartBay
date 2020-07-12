@@ -1,10 +1,7 @@
 package com.uok.services;
 
 import com.uok.common.*;
-import com.uok.repository.OrderRepository;
-import com.uok.repository.ProductRepository;
-import com.uok.repository.RoleRepository;
-import com.uok.repository.UserRepository;
+import com.uok.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +24,9 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    RatingRepository ratingRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -87,5 +88,65 @@ public class CustomerServiceImpl implements CustomerService{
             logger.info("Search product Fail");
         }
         return products;
+    }
+
+    @Override
+    public Rating saveProductRating(Rating rating){
+        Rating productRating = null;
+        try{
+            productRating = ratingRepository.save(rating);
+            logger.info("Success");
+        }catch (Exception e){
+            logger.info("Failed with Exception"+e.getMessage());
+        }
+        return productRating;
+    }
+
+    @Override
+    public List<Integer> getAllOrders(String email){
+        List<Integer> productIdList = new ArrayList<>();
+        try{
+            Order order = orderRepository.findByEmail(email);
+            logger.info("Order : "+order.getOrderId());
+            List<Product> productList = order.getProductList();
+            System.out.println("Before");
+            logger.info("PrList : "+productList);
+            for(Product product : productList){
+                System.out.println("In forloop");
+                System.out.println(product.getId());
+                productIdList.add(product.getProductId());
+                logger.info("Product : "+productIdList);
+            }
+            logger.info("Success");
+        }catch (Exception e){
+            logger.info("Failed with Exception"+e.getMessage());
+        }
+        return productIdList;
+    }
+
+    @Override
+    public List<Product> getProductsByIdList(List<Integer> productIds){
+        List<Product> productList = new ArrayList<Product>();
+        try{
+            for(Integer productId : productIds){
+                productList.add(productRepository.findByProductId(productId));
+            }
+            logger.info("Success");
+        }catch (Exception e){
+            logger.info("Failed with Exception"+e.getMessage());
+        }
+        return productList;
+    }
+
+    @Override
+    public List<User> getAllCustomers(){
+        List<User> customerList = null;
+        try{
+            customerList = userRepository.findByValue(true);
+            logger.info("Success");
+        }catch (Exception e){
+            logger.info("Failed with Exception"+e.getMessage());
+        }
+        return customerList;
     }
 }

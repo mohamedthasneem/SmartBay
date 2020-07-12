@@ -21,4 +21,6 @@ public interface UserRepository extends MongoRepository<User, String> {
     List<User> findByRoles(Set<Role> roles);
 
     Customer findByRolesAndId(Set<Role> roles,String id);
+
+    List<User> findByValue(boolean isCustomer);
 }

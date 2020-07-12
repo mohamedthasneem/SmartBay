@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoreOwnerService } from './services/store-owner.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'StoreOwnerSite';
+
+  constructor(public storeOwnerService : StoreOwnerService){}
 }

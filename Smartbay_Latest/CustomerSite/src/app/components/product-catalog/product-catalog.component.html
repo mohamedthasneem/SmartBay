@@ -1,5 +1,53 @@
+<!--
 <div class="row">
     <div class="col-md-4" *ngFor="let product of products">
         <app-product-item [productItem]="product"></app-product-item>
     </div>
 </div>
+-->
+<br><br>  
+      
+<div class="row">  
+    <div class="form-group col-md-offset-4 col-md-4">   
+        
+            <table>  
+                <tr>  
+                    <td> <input type="text"  placeholder="Enter name" class="form-control" [(ngModel)]="searchTerm"> </td>  
+                    <td><button class="btn btn-primary hidden-xs" (click)="Search()">Search</button></td>  
+                </tr>  
+            </table>  
+      
+    </div>  
+</div>  
+  
+<br><br>
+
+<select class="browser-default custom-select">
+  <option selected (click)="ngOnInit()">All</option>
+  <option value="1" (click)="onSelect('Education')">Education</option>
+  <option value="2" (click)="onSelect('Sports')">Sports</option>
+  <option value="3" (click)="onSelect('Toy')">Toys</option>
+</select>
+
+<div class="row mt-5">
+    <div class="col-md-3 mb-3" *ngFor="let product of products">
+        <img class="bd-placeholder-img card-img-top p-2" width="100%" height="250px" [src]="product.retrievedImage">  
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{product.productName}}</h5>
+          <p class="card-text">{{product.productPrice}}</p>
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="OnAddCart(product)">Add To Cart</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewDetails(product,product.id)">View Details</button>
+          <button type="button" class="btn btn-sm btn-outline-primary" (click)="rateProduct(product,product.id)">Rate Product</button>
+        </div>
+        <div class="card-footer text-muted">
+          {{product.productCategory}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3>Recommended Products</h3>
+    <app-rec-products></app-rec-products>
+  </div>

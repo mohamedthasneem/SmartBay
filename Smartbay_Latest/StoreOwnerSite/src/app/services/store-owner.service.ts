@@ -84,11 +84,18 @@ export class StoreOwnerService {
     }});  
   }
 
+  deleteCustomer(id:string){
+    return this.httpClient.delete('http://localhost:9090/api/store-owner/customer/'+id,{headers : {
+      "Authorization" : "Bearer "+ localStorage.getItem("store-owner-token")
+    }});  
+  }
+
   viewAllOrders(){
     return this.httpClient.get<Order[]>('http://localhost:9090/api/store-owner/orders',{headers : {
       "Authorization" : "Bearer "+ localStorage.getItem("store-owner-token")
     }});  
   }
 
+  
   
 }

@@ -11,7 +11,14 @@ import { RouterModule } from '@angular/router';
 import { ProductCatalogComponent } from './components/product-catalog/product-catalog.component';
 import { ProductItemComponent } from './components/product-catalog/product-item/product-item.component';
 import { CartComponent } from './components/cart/cart.component';
-import { CheckoutComponent } from './components/checkout/checkout.component'
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ProductRatingComponent } from './components/product-rating/product-rating.component';
+import { RecProductsComponent } from './components/rec-products/rec-products.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +28,14 @@ import { CheckoutComponent } from './components/checkout/checkout.component'
     ProductCatalogComponent,
     ProductItemComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductRatingComponent,
+    RecProductsComponent,
+    HeaderComponent,
+    FooterComponent,
+    ChatbotComponent,
+    HomeComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

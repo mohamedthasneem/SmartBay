@@ -16,7 +16,9 @@ import { UpdateProductComponent } from './components/dashboard/product/update-pr
 import { CustomerComponent } from './components/dashboard/customer/customer.component';
 import { OrderComponent } from './components/dashboard/order/order.component';
 import { ViewOrderComponent } from './components/dashboard/order/view-order/view-order.component';
-import { ViewCustomerComponent } from './components/dashboard/customer/view-customer/view-customer.component'
+import { ViewCustomerComponent } from './components/dashboard/customer/view-customer/view-customer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ViewCustomerComponent } from './components/dashboard/customer/view-cust
     CustomerComponent,
     OrderComponent,
     ViewOrderComponent,
-    ViewCustomerComponent
+    ViewCustomerComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

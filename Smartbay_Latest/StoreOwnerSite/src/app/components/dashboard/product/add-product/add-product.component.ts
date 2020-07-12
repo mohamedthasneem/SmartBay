@@ -12,6 +12,7 @@ export class AddProductComponent implements OnInit {
 
   @Input()
   product = {
+    "productId" : "",
     "productName" : "",
     "productCategory" : "",
     "productPrice":"",

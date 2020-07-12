@@ -7,8 +7,11 @@ import javax.annotation.Generated;
 
 @Document(collection = "products")
 public class Product {
+
     @Id
     private String id;
+
+    private int productId;
 
     private String productName;
 
@@ -18,12 +21,21 @@ public class Product {
 
     private byte[] picByte;
 
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {

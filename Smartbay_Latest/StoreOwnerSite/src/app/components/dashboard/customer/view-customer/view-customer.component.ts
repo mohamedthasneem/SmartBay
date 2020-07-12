@@ -11,10 +11,15 @@ import { Customer } from 'src/app/models/customer';
 export class ViewCustomerComponent implements OnInit {
 
   customers : Customer[];
+  searchTerm : string;
 
   constructor(private storeOwnerService : StoreOwnerService,private router: Router) { }
 
   ngOnInit(): void {
+    this.reloadData();  
+  }
+
+  reloadData(){
     this.storeOwnerService.viewAllCustomers().subscribe(customers =>{
       console.log(customers);
       this.customers = customers
@@ -26,7 +31,26 @@ export class ViewCustomerComponent implements OnInit {
         this.router.navigate(['/login'])
       }
     }
-    )
+    )  
+  }
+
+  deleteCustomer(id:string){
+    this.storeOwnerService.deleteCustomer(id).subscribe(data=>{
+      console.log(data)
+      this.reloadData()
+    })  
+  }
+
+  Search(){
+    this.storeOwnerService.viewAllCustomers().subscribe(
+      customers => {
+                
+        this.customers = customers, 
+        this.customers = this.customers.filter(res => {
+          return res.username.toLocaleLowerCase().match(this.searchTerm.toLocaleLowerCase());  
+        }); 
+      }  
+    );  
   }
 
 }

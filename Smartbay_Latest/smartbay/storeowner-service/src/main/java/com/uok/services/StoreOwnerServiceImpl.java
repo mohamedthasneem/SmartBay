@@ -106,10 +106,7 @@ public class StoreOwnerServiceImpl implements StoreOwnerService{
     public List<User> getAllCustomers(){
         List<User> customerList = null;
         try{
-            Set<Role> roles = new HashSet<>();
-            Role customerRole = roleRepository.findByName(ERole.ROLE_CUSTOMER).orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-            roles.add(customerRole);
-            customerList = userRepository.findByRoles(roles);
+            customerList = userRepository.findByValue(true);
             logger.info("Get all customers success");
         }catch(Exception e){
             logger.info("Get all customers Failed with Exception : "+e.getMessage());
@@ -157,5 +154,13 @@ public class StoreOwnerServiceImpl implements StoreOwnerService{
         return order;
     }
 
-
+    @Override
+    public void deleteCustomer(String id){
+        try{
+            userRepository.deleteById(id);
+            logger.info("success");
+        }catch(Exception e){
+            logger.info("Failed with Exception : "+e.getMessage());
+        }
+    }
 }

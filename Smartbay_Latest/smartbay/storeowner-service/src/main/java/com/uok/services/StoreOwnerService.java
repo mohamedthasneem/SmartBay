@@ -26,5 +26,6 @@ public interface StoreOwnerService {
 
     Order getOrder(String id);
 
+    void deleteCustomer(String id);
     //Product deleteProduct(String id);
 }

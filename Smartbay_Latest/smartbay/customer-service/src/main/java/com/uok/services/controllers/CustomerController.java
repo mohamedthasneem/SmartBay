@@ -80,6 +80,7 @@ public class CustomerController{
         roles.add(customerRole);
 
         customer.setRoles(roles);
+        customer.setValue(true);
         userRepository.save(customer);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
@@ -116,4 +117,27 @@ public class CustomerController{
         List<Product> productList = serviceImpl.searchProduct(productName);
         return productList;
     }
+
+    @PostMapping("/product/rate")
+    public Rating rateProduct(@RequestBody Rating rating){
+        Rating productRating = serviceImpl.saveProductRating(rating);
+        return productRating;
+    }
+
+    @GetMapping("/order-ids/{email}")
+    public  List<Integer> getOrderProductIds(@PathVariable("email") String customerEmail){
+        return serviceImpl.getAllOrders(customerEmail);
+    }
+
+    @PostMapping("/recommended-products")
+    public List<Product> getRecommendedProducts(@RequestBody RecProduct recProduct){
+        return serviceImpl.getProductsByIdList(recProduct.getProductIdList());
+    }
+
+    @GetMapping("/product/{id}")
+    public Product getProduct(@PathVariable("id") String id){
+        return serviceImpl.getProduct(id);
+    }
+
+
 }

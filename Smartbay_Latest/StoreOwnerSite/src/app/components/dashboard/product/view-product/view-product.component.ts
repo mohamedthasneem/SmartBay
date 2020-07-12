@@ -13,6 +13,7 @@ export class ViewProductComponent implements OnInit {
 
   products : Product[];
   email = localStorage.getItem('email');
+  searchTerm : string;
 
   constructor(private storeOwnerService : StoreOwnerService,private router: Router) { }
 
@@ -65,5 +66,23 @@ export class ViewProductComponent implements OnInit {
 
   updateProduct(id:string,product:Product){
     this.router.navigate(['/dashboard/products/update',id])
+  }
+
+  Search(){
+    this.storeOwnerService.viewAllProducts().subscribe(
+      products => {
+        for (let i = 0; i < products.length; i++) {
+          
+          products[i].retrievedImage = 'data:image/jpeg;base64,' + products[i].picByte;
+        }        
+        this.products = products, 
+        this.products = this.products.filter(res => {
+          return res.productName.toLocaleLowerCase().match(this.searchTerm.toLocaleLowerCase());  
+        }); 
+      }  
+    );
+
+   
+    
   }
 }

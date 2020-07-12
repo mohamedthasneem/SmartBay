@@ -73,4 +73,5 @@ export class UpdateProductComponent implements OnInit {
       }
       );
   }
+  
 }

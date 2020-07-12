@@ -85,6 +85,7 @@ public class StoreOwnerController {
         roles.add(storeOwnerRole);
 
         storeOwner.setRoles(roles);
+        storeOwner.setValue(false);
         userRepository.save(storeOwner);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
@@ -161,5 +162,10 @@ public class StoreOwnerController {
         return customer;
     }
 
+    @DeleteMapping("/customer/{id}")
+    @PreAuthorize("hasRole('STOREOWNER')")
+    public void deleteCustomer(@PathVariable("id") String customerId){
+        serviceImpl.deleteCustomer(customerId);
+    }
 
 }

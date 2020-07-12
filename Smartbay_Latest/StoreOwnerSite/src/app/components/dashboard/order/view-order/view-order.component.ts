@@ -11,6 +11,7 @@ import { Order } from 'src/app/models/order';
 export class ViewOrderComponent implements OnInit {
 
   orders : Order[];
+  searchTerm : string;
 
   constructor(private storeOwnerService : StoreOwnerService,private router: Router) { }
 
@@ -26,6 +27,17 @@ export class ViewOrderComponent implements OnInit {
           this.router.navigate(['/login'])
         }
       }) 
+  }
+
+  Search(){
+    this.storeOwnerService.viewAllOrders().subscribe(
+      orders => {        
+        this.orders = orders, 
+        this.orders = this.orders.filter(res => {
+          //return res.firstName.toLocaleLowerCase().match(this.searchTerm.toLocaleLowerCase());  
+        }); 
+      }  
+    );  
   }
 
 }
