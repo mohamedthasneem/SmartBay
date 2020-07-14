@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "smartbay-frontend"
+  "defaultProject": "smartbay-frontend",
+  "cli": {
+    "analytics": "b36405aa-dd0c-4fa5-a783-5968f98ceb46"
+  }
 }

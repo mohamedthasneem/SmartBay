@@ -1,4 +1,4 @@
-import {Product} from 'G:/Development-Project/SmartBay/frontend/src/app/Models/product';
+import {Product} from './product';
 
 export interface CartState {
     loaded : boolean;
