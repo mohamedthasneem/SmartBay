@@ -1,0 +1,14 @@
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    background-color: rgba(146, 135, 161, 0.15);
+}
+
+.quantity{
+    float: left;
+}
