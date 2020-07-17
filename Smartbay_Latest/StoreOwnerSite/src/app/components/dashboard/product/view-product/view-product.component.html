@@ -27,15 +27,34 @@
     </thead>
     <tbody>
         <ng-container *ngFor="let product of products">   
+          <!-- <ng-container > -->
           <tr>
-            <td>{{product.id}}</td>
+            <!-- <td>{{product.id}}</td>
             <td>{{product.productName}}</td>
             <td>{{product.productCategory}}</td>
-            <td>{{product.productPrice}}</td>      
-            <td><img src="{{product.retrievedImage}}" height="200" width="200"></td>
+            <td>{{product.productPrice}}</td>       -->
+            <td>
+              <p class="mt-5"> {{product.id}}</p>
+            </td>
+            <td>
+              <p class="mt-5"> {{product.productName}}</p>
+            </td>
+            <td>
+              <p class="mt-5"> {{product.productCategory}}</p>
+            </td>
+            <td>
+              <p class="mt-5">{{product.productPrice}}</p>
+            </td>
+             <td><img src="{{product.retrievedImage}}" height="150" width="150"></td> 
+            <!-- <td><img src="assets/image/ironman.jpg" height="150" width="150"></td> -->
             <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button></td>
             <td><button class="btn btn-info" (click)="updateProduct(product.id,product)">Update</button></td>
+  
+            <!-- <td><button class="btn btn-danger mt-5" >Delete</button></td>
+            <td><button class="btn btn-info mt-5" >Update</button></td> -->
           </tr>
+
+         
         </ng-container>
     </tbody>
   </table>

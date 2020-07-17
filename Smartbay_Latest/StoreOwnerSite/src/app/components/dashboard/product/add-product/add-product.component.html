@@ -1,24 +1,44 @@
-<h1>Add New Product</h1>
+<h4 class="mt-3">Add New Product</h4>
 
-<form>
+<form class="border p-3 border-secondary">
   
-  <label for="name">Product Code</label>
-  <input type="text" class="form-control" id="code" placeholder="Product Code" [(ngModel)]="product.productId" name="code">
+  <label for="name" class="font-weight-bold">Product Code</label>
+  <input type="text" 
+  class="form-control" 
+  id="code" 
+  placeholder="Product Code" 
+  [(ngModel)]="product.productId"
+  name="code">
 
-  <label for="name">Name</label>
-  <input type="text" class="form-control" id="name" placeholder="Product Name" [(ngModel)]="product.productName" name="name">
+  <label for="name"  class="font-weight-bold">Name</label>
+  <input type="text" 
+  class="form-control" 
+  id="name" 
+  placeholder="Product Name" 
+  [(ngModel)]="product.productName" 
+  name="name">
 
-  <label for="category">Category</label>
+  <label for="category"  class="font-weight-bold">Category</label>
   <input type="text" class="form-control" id="category" placeholder="Product Category" [(ngModel)]="product.productCategory" name="category">
 
-  <label for="author">Price</label>
+  <label for="author"  class="font-weight-bold">Price</label>
   <input type="text" class="form-control" id="price" placeholder="Product Price" name="price" [(ngModel)]="product.productPrice">
 
 
     <br>
-    <input type="file" (change)="onFileChanged($event)">
+    <!-- <input type="file"  (change)="onFileChanged($event)"> -->
+    <label for="image"  class="font-weight-bold">image</label><br>
+      <span class="btn btn-primary btn-file">
+        Browse...<input type="file" (change)="onFileChanged($event)">
+    </span>
+    <br>
     <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
 
   <br>
-  <button type="button" class="btn btn-success" (click)="addNewProduct()">Add Product</button>
+  <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-success mt-2  " (click)="addNewProduct()">Add Product</button>
+  </div>
 </form>
+
+
+
