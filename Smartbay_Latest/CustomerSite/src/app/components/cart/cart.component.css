@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&family=Playfair+Display:wght@500&display=swap');
+.items
+{
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(120, 120, 214);
+}
+.total
+{
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    font-weight: bold;
+}
+.vertically_cen
+{
+    text-align: center; 
+    vertical-align: middle;
+}
+td 
+{
+    height: 50px; 
+    width: 50px;
+}

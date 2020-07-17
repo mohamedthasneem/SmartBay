@@ -1,8 +1,8 @@
 <div id="collapseExample">
     <div class="card">
         <div class="card-body">
-            <h1 style="color: chartreuse;">Items in your cart : <span style="margin-left: 35%; color: cyan;">Total value : {{cartTotal}}</span></h1>
-            <table class="table table-bordered table-responsive table-hover">
+            <span class="items">Items in your cart : <span style="margin-left: 35%;" class="total">Total value : {{cartTotal}}</span></span>
+            <table class="table table-striped table-bordered table-hover dataTables-example text-center">
                 <thead class="thead-light">
                     <tr>
                         <th>Image</th>
@@ -13,7 +13,21 @@
                         <th>Total For Item</th>             
                     </tr>
                 </thead>
-                <tr *ngFor="let product of cartItems">
+                <tr class="vertically_cen">
+                    <td><img src="assets/images/moneyback.jpg" width="200px" height="210px" /></td>
+                    <td>laptop</td>
+                    <td>50000</td> 
+                    <td>5</td>
+                    <td>
+                         <div class="form-inline row justify-content-center">
+                            <button type="button" class="btn btn-success">+</button>
+                            &nbsp;
+                            <button type="button" class="btn btn-danger">-  </button>
+                        </div>
+                    </td>
+                    <td>25000</td>    
+                </tr>
+                <!-- <tr *ngFor="let product of cartItems">
                     <td><img src="{{product.retrievedImage}}" width="250px" height="270px" /></td>
                     <td class="text-center">{{product.productName}}</td>
                     <td>{{product.productPrice}}</td>
@@ -26,7 +40,7 @@
                         </div>
                     </td>
                     <td>{{product.productPrice * product.productQuantity}}</td>    
-                </tr>
+                </tr> -->
             </table>
         </div>
     </div>
