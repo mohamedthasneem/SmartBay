@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitter:wght@700&family=Merriweather+Sans:wght@800&display=swap');
+
+.head{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.rate{
+    font-family: 'Merriweather Sans', sans-serif;
+   
+    letter-spacing: 3px;
+}
+
+.FullMain{
+    margin: 0px;
+    padding: 0px;
+}
+
+.cata{
+    font-family: 'Bitter', serif;
+    font-size: 15px;
+}
+
+.vv{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.done{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}

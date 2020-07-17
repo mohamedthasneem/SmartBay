@@ -50,4 +50,9 @@ export class ProductRatingComponent implements OnInit {
   getProduct(){
     
   }
+
+
+
+
+  
 }
