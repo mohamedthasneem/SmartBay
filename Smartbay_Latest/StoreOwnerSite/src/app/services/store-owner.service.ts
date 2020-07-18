@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Customer } from '../models/customer';
 import { Order } from '../models/order';
+import { SalesDetails } from '../models/sales-details';
 
 @Injectable({
   providedIn: 'root'
@@ -96,6 +97,17 @@ export class StoreOwnerService {
     }});  
   }
 
+  getSalesDetails(){
+    return this.httpClient.get<SalesDetails>('http://localhost:9090/api/store-owner/sales-details');    
+  } 
   
-  
+  setOrderStatusDelivered(order:any){
+    return this.httpClient.put('http://localhost:9090/api/store-owner/status-change',order)        
+  }
+
+  getProductById(id:string){
+    return this.httpClient.get<Product>('http://localhost:9090/api/store-owner/products/'+id,{headers : {
+      "Authorization" : "Bearer "+ localStorage.getItem("store-owner-token")
+    }})  
+  }
 }

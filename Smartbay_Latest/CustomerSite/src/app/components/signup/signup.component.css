@@ -1,0 +1,23 @@
+    .back{
+    background-color: #cce5ff;
+    }
+    
+    
+    span{
+        background-color: #3a57af;
+    }
+    
+    i{
+        color: white;
+    }
+    
+    
+    .card-header{
+        background-color: #428bca;
+    }
+
+    .con-body{
+        background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-2-5d-e-commerce-semi-stereo-city-economy-poster-background-image_198703.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }

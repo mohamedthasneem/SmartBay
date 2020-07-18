@@ -163,4 +163,38 @@ public class StoreOwnerServiceImpl implements StoreOwnerService{
             logger.info("Failed with Exception : "+e.getMessage());
         }
     }
+
+    @Override
+    public SalesDetails getAllDetails(){
+        SalesDetails salesDetails = null;
+        try{
+            int customerCount = userRepository.findByValue(true).size();
+            int pendingOrderCount = orderRepository.findByStatus("PENDING").size();
+            int deliveredOrderCount = orderRepository.findByStatus("DELIVERED").size();
+            List<Order> orderList = orderRepository.findAll();
+            float totalSales = 0;
+            for(Order order : orderList){
+                totalSales = totalSales + order.getTotalAmount();
+            }
+            salesDetails = new SalesDetails(customerCount,pendingOrderCount,deliveredOrderCount,totalSales);
+            logger.info("success");
+        }catch (Exception e){
+            logger.info("Failed with Exception : "+e.getMessage());
+        }
+        return salesDetails;
+    }
+
+    @Override
+    public void setDelivered(String id){
+        Order order = null;
+        try{
+            order = orderRepository.findById(id).get();
+            order.setStatus("DELIVERED");
+            order.setDelivered(true);
+            orderRepository.save(order);
+            logger.info("success");
+        }catch (Exception e){
+            logger.info("Failed with Exception : "+e.getMessage());
+        }
+    }
 }

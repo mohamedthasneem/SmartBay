@@ -14,6 +14,12 @@
     </div>  
 </div>  
   
+<select class="browser-default custom-select">
+  <option selected (click)="ngOnInit()">All</option>
+  <option value="1" (click)="onSelect('PENDING')">PENDING</option>
+  <option value="2" (click)="onSelect('DELIVERED')">DELIVERED</option>
+</select>
+
 <br><br>
   
   <table class="table table-hover table-dark">
@@ -25,21 +31,28 @@
           <th>Date</th>
           <th>Billing Address</th>
           <th>ProductList</th>
+          <th>Status</th>
+          <th>Set Delivery</th>
         </tr> 
     </thead>
     <tbody>
         <ng-container *ngFor="let order of orders">   
           <tr>
             <td>{{order.orderId}}</td>
-            <td>{{order.firstName}}</td>
-            <td>{{order.email}}</td>
-            <td>10</td>
+            <td>{{order.firstName}} {{order.lastName}}</td>         
             <td>{{order.billingAddress}}</td>
-            <td>{{order.productList}}</td>        
+            <td>{{order.email}}</td>
+            <td>{{order.orderDate}}</td>
+            <td>
+              <ul *ngFor='let item of order.productList'>
+                <div>{{item.productName}} <span> - </span> <span> {{item.productQuantity}}</span></div>
+              </ul>  
+              </td> 
+            <td>{{order.status}}</td>
+            <td><button class="btn btn-info" (click)="changeStatus(order)" disabled="{{order.isDelivered}}" >Mark For Delivery</button></td> 
           </tr>
         </ng-container>
     </tbody>
   </table>
 
   
-    

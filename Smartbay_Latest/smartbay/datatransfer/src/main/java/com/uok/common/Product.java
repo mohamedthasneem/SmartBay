@@ -21,6 +21,25 @@ public class Product {
 
     private byte[] picByte;
 
+    private int quantity;
+
+    private int productQuantity;
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public void setProductQuantity(int productQuantity) {
+        this.productQuantity = productQuantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public String getId() {
         return id;

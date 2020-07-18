@@ -17,6 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -89,7 +91,9 @@ public class CustomerController{
     @PostMapping("/order")
     @PreAuthorize("hasRole('CUSTOMER')")
     public Order createOrder(@RequestBody Order order){
-        Order newOrder = serviceImpl.addOrder(order);
+        System.out.println(order.getOrderDate());
+
+            Order newOrder = serviceImpl.addOrder(order);
         return newOrder;
     }
 

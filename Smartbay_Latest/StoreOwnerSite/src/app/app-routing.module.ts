@@ -11,9 +11,12 @@ import { CustomerComponent } from './components/dashboard/customer/customer.comp
 import { ViewCustomerComponent } from './components/dashboard/customer/view-customer/view-customer.component';
 import { OrderComponent } from './components/dashboard/order/order.component';
 import { ViewOrderComponent } from './components/dashboard/order/view-order/view-order.component';
+import { SalesComponent } from './components/dashboard/sales/sales.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
+  {path:'',component:HomeComponent},
   {path:'signup',component:SignupComponent},
   {path:'login',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent,
@@ -34,6 +37,9 @@ const routes: Routes = [
       children : [
         {path:'view',component:ViewOrderComponent}
       ]
+      },
+      {path:'sales',component:SalesComponent
+
       }
    ] 
   }

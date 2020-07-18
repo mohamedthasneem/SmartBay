@@ -16,6 +16,7 @@ export class AddProductComponent implements OnInit {
     "productName" : "",
     "productCategory" : "",
     "productPrice":"",
+    "quantity" : "",
     "picByte":""
   };
 

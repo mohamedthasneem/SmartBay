@@ -1,0 +1,133 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link">Summary<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<br>
+<br>
+<br>
+<div class="dashboard"> 
+    <div class="list-dash">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12 ">
+                <div class="card card-customer border border-success bgg" >
+                    <div class="card-body">
+                        <p style="text-align:left;" class="text-white">
+                            Customers
+                            <span style="float:right;">
+                                <i class="fas fa-user-friends"></i>
+
+                            </span>
+                        </p>
+                        <br>
+                      <p><span>Number of customers</span> - {{salesDetails.registeredCustomerCount}}</p>
+                      
+                     </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card card-order border border-warning order_bgg" >
+                    <div class="card-body">
+                        <p style="text-align:left;" class="text-white">
+                            Orders
+                            <span style="float:right;">
+                                <i class="fas fa-shopping-cart"></i>
+                            </span>
+                        </p>
+                        <br>
+                      <p><span>Number of Pending Orders</span> - {{salesDetails.pendingOrderCount}}</p>
+                      <p><span>Number of Delivered Orders</span> - {{salesDetails.deliveredOrderCount}}</p>
+                      
+                    </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card card-revnu" >
+                    <div class="card-body border border-danger revenue_bg">
+                        <p style="text-align:left;" class="text-white">
+                            Total Sales
+                            <span style="float:right;">
+                                <i class="fas fa-dollar-sign"></i>
+                            </span>
+                            <br>
+                            <br>
+                        </p>
+                        <p><span>Revenue</span> - {{salesDetails.totalSales}}</p>
+                      
+                     </div>
+                  </div>
+              </div>
+            </div>
+            <br>
+            
+          
+          </div>
+    </div>
+
+
+
+    <!-- <div class="tables">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div> -->
+</div>

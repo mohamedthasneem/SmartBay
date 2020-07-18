@@ -18,7 +18,9 @@ import { OrderComponent } from './components/dashboard/order/order.component';
 import { ViewOrderComponent } from './components/dashboard/order/view-order/view-order.component';
 import { ViewCustomerComponent } from './components/dashboard/customer/view-customer/view-customer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { SalesComponent } from './components/dashboard/sales/sales.component';
+import { HomeComponent } from './components/home/home.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { FooterComponent } from './components/footer/footer.component'
     ViewOrderComponent,
     ViewCustomerComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SalesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

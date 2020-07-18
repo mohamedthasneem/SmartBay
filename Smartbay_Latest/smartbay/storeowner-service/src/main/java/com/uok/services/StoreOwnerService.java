@@ -28,4 +28,8 @@ public interface StoreOwnerService {
 
     void deleteCustomer(String id);
     //Product deleteProduct(String id);
+
+    SalesDetails getAllDetails();
+
+    void setDelivered(String id);
 }

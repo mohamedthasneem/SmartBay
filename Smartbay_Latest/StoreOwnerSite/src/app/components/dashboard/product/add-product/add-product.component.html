@@ -1,5 +1,4 @@
-<h1>Add New Product</h1>
-
+<br>
 <form>
   
   <label for="name">Product Code</label>
@@ -11,6 +10,9 @@
   <label for="category">Category</label>
   <input type="text" class="form-control" id="category" placeholder="Product Category" [(ngModel)]="product.productCategory" name="category">
 
+  <label for="quantity">Quantity</label>
+  <input type="text" class="form-control" id="quantity" placeholder="Product Quantity" [(ngModel)]="product.quantity" name="quantity">
+
   <label for="author">Price</label>
   <input type="text" class="form-control" id="price" placeholder="Product Price" name="price" [(ngModel)]="product.productPrice">
 
@@ -19,6 +21,8 @@
     <input type="file" (change)="onFileChanged($event)">
     <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
 
+  <br>
+  <br>
   <br>
   <button type="button" class="btn btn-success" (click)="addNewProduct()">Add Product</button>
 </form>

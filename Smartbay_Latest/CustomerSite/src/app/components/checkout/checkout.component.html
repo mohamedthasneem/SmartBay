@@ -1,4 +1,105 @@
+<div class="main checkout-body">
+  <div class="row">
+<div class="container col-md-6 cart-products" >
+  <div class="col-md-6">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted mt-3">Your cart</span>
+    </h4>
+    <ul class="list-group mb-3">
+      <li class="list-group-item  lh-condensed  " *ngFor="let item of cartItems" >
+        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of cartItems"> -->
+        <div>
+          <!-- <h6 class="my-0">{{item.productName}}</h6>
+          <span class="text-muted">{{item.productPrice}}</span> 
+          <span>  X  </span>
+          <span class="text-muted">{{item.productQuantity}}</span>   -->
+        
+          <div class="d-flex">
+            <div class="mr-auto p-2">
+              <h6 class="my-0   ">{{item.productName}}</h6>
+            </div>
+            
+            <div class="p-2">
+              <span class="text-muted">{{item.productPrice}}</span> 
+          <span>  X  </span>
+          <span class="text-muted">{{item.productQuantity}}</span>  
+            </div>
+          </div>
+        </div>
+        
+      </li>
+      
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Total (USD)</span>
+        <strong>{{cartTotal}}</strong>
+      </li>
+    </ul>
+  </div>
+</div>    
 
+    
+    <div class="container col-md-6 cus-details">
+
+        
+    <div class="col-md-6 order-md-1">
+        <h4 class="mb-3">Customer Billing Details</h4>
+        <form>
+            <label for="firstName">First name</label>
+            <input type="text" 
+            class="form-control mb-2" 
+            id="firstName" 
+            name="firstName" 
+            placeholder="firstName" 
+            [(ngModel)]="order.firstName" 
+            required>
+            
+            <label for="lastName">Last name</label>
+            <input type="text" 
+            class="form-control mb-2" 
+            id="lastName" 
+            name="lastName" 
+            placeholder="last name" 
+            [(ngModel)]="order.lastName" 
+            required>
+
+            <label for="email">Email</label>
+            <input type="email" 
+            class="form-control mb-2" 
+            id="email" name="email" 
+            [(ngModel)]="order.email" 
+            placeholder="email">
+
+            <label for="billingAddress">Billing Address</label>
+            <input type="text" 
+            class="form-control mb-2" 
+            id="billingAddress" 
+            name="billingAddress" 
+            placeholder="Address" 
+            [(ngModel)]="order.billingAddress" required>
+            
+            <h6 class="mb-3 mt-4">Click for Payment</h6>
+
+           
+
+            <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
+            <div id="paypal-checkout-btn"></div>
+            
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-primary  mt-3   mb-3" type="submit" (click)="addOrder()">Place Order</button>
+            </div>
+           
+
+        </form>
+    </div>
+    </div>
+
+  </div> 
+
+  </div>
+
+
+
+<!--
 
     <div class="container">
 
@@ -41,9 +142,12 @@
             <label for="billingAddress">Billing Address</label>
             <input type="text" class="form-control" id="billingAddress" name="billingAddress" placeholder="" [(ngModel)]="order.billingAddress" required>
             
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" name="date" [(ngModel)]="order.orderDate">
+            
             <h6 class="mb-3">Click for Payment</h6>
 
-            <!--
+            
             <div class="d-block my-3">
                 <div class="custom-control custom-radio">
                   <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
@@ -79,7 +183,7 @@
                   <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
                 </div>
               </div>
-            -->
+            
 
             <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
             <div id="paypal-checkout-btn"></div>
@@ -89,5 +193,5 @@
         </form>
     </div>
 
-    
-
+  -->
+  

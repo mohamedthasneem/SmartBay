@@ -2,6 +2,7 @@ package com.uok.services.controllers;
 
 import com.uok.common.*;
 import com.uok.configs.JwtUtils;
+import com.uok.repository.OrderRepository;
 import com.uok.repository.RoleRepository;
 import com.uok.repository.UserRepository;
 import com.uok.services.StoreOwnerServiceImpl;
@@ -19,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -107,7 +110,7 @@ public class StoreOwnerController {
 
     @GetMapping("/products/{id}")
     @PreAuthorize("hasRole('STOREOWNER')")
-    public Product viewProduct(@RequestParam("id") String productId){
+    public Product viewProduct(@PathVariable("id") String productId){
         Product product = serviceImpl.getProduct(productId);
         return product;
     }
@@ -168,4 +171,33 @@ public class StoreOwnerController {
         serviceImpl.deleteCustomer(customerId);
     }
 
+    @Autowired
+    OrderRepository orderRepository;
+
+    @GetMapping("/test/order")
+    public List<Order> getAll(){
+        List<Order> orders = null;
+        Date startDate = new Date("2020-07-05T00:00:00.000+00:00");
+        SimpleDateFormat dateFormatIn = new SimpleDateFormat("yyyy-MM-dd");
+
+        Order newOrder = orderRepository.findByEmail("dilshan@cus.com");
+           // Date day = dateFormatIn.parse("2020-07-05");
+            orders = orderRepository.findByOrderDate(newOrder.getOrderDate().toString());
+
+        Date endDate = new Date(2020,07,31);
+
+        System.out.println(orders);
+        return orders;
+    }
+
+    @GetMapping("/sales-details")
+    public SalesDetails getAllDetails(){
+        SalesDetails salesDetails = serviceImpl.getAllDetails();
+        return salesDetails;
+    }
+
+    @PutMapping("/status-change")
+    public void setOrderDelivered(@RequestBody Order order){
+        serviceImpl.setDelivered(order.getOrderId());
+    }
 }

@@ -14,19 +14,20 @@ export class UpdateProductComponent implements OnInit {
 
   id : string;
 
-  @Input()
-  product = {
-    "productName" : "",
-    "productCategory" : "",
-    "productPrice":"",
-    "picByte":""
-  };
+  product : Product;
 
    
   constructor(private storeOwnerService : StoreOwnerService,private httpClient : HttpClient,private route : ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
+    this.product = new Product();
+
     this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
+    this.storeOwnerService.getProductById(this.id).subscribe(res =>{
+      this.product = res;
+      console.log(this.product)
+    })
   }
   
   @Output()
@@ -62,14 +63,14 @@ export class UpdateProductComponent implements OnInit {
           this.storeOwnerService.updateProduct(this.id,this.product).subscribe(
             (product) => {
               console.log(product);
-              this.productAddedEvent.emit();
-              
+              this.productAddedEvent.emit();          
             }
           );
           console.log('Image uploaded successfully');
         } else {
           console.log('Image not uploaded successfully');
         }
+        this.router.navigate(['/dashboard/products/view'])
       }
       );
   }

@@ -12,14 +12,17 @@ export class ViewOrderComponent implements OnInit {
 
   orders : Order[];
   searchTerm : string;
+  test : any;
+  filterTerm : string;  
 
   constructor(private storeOwnerService : StoreOwnerService,private router: Router) { }
 
   ngOnInit(): void {
     this.storeOwnerService.viewAllOrders().subscribe(orders=>
       {
-        console.log(orders);
-      this.orders = orders},
+      this.orders = orders;
+        
+      },
       err =>{
         console.log("Error .....")
         console.log(err.status)
@@ -34,10 +37,29 @@ export class ViewOrderComponent implements OnInit {
       orders => {        
         this.orders = orders, 
         this.orders = this.orders.filter(res => {
-          //return res.firstName.toLocaleLowerCase().match(this.searchTerm.toLocaleLowerCase());  
+          return res.orderId.toLocaleLowerCase().match(this.searchTerm.toLocaleLowerCase());  
         }); 
       }  
     );  
   }
 
+  changeStatus(order:Order){
+    this.storeOwnerService.setOrderStatusDelivered(order).subscribe(res =>{
+      console.log(res)  
+    });  
+  }
+
+  onSelect(status : string){
+    this.filterTerm = status;  
+
+    this.storeOwnerService.viewAllOrders().subscribe(
+      orders => {        
+        this.orders = orders, 
+        this.orders = this.orders.filter(res => {
+          return res.status.toLocaleLowerCase().match(this.filterTerm.toLocaleLowerCase());  
+        }); 
+      }  
+    );
+
+  }
 }

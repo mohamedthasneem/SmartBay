@@ -1,0 +1,28 @@
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity{
+    float: left;
+}
+
+.cart-products{
+    position: relative;
+    left: 50%;
+}
+
+.cus-details{
+    position: relative;
+    right: 40%;
+}
+
+
+
+.checkout-body{
+    background-image: url('https://lh3.googleusercontent.com/proxy/S3iuUxPBSQgb4P7f-DIZB56U5smFiCuoGECFKuco0Dp8WXlbxeES1DV0G_WaUFGChCl0smviw1Q9dWOAeLyeuFve4gwqYXP9JyG-6aGy9UYfTBUvptFnr-cefG6_rI9MPlEJcYmJ2fA8CFbxqLhV6hxpVY6ePkL7hw');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

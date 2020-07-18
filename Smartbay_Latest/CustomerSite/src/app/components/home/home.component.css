@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
 .carousel-item {
     height: 100vh;
     min-height: 350px;
@@ -6,4 +8,29 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+  }
+  .slide1
+  {
+    color:#51ebde;
+  }
+  .font
+  {
+    font-family: 'Fondamento', cursive;
+  }
+  .popular_product
+  {
+    font-size: 30px;
+    font-family: 'Merriweather', serif;
+  }
+  .image_pro
+  {
+    width: 80px;
+    height: 80px;
+    margin: 25px;
+  }
+  .des_img
+  {
+    margin: 30px;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
   }

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:wght@700&family=Rowdies&display=swap');
+
+
+.card-title{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+}
+
+.card-text{
+    font-family: "Market Sans", Arial, sans-serif;
+    font-size: 2.5rem;
+    line-height: 129%;
+    font-weight: bold;
+    color: #333;
+}
+
+.search{
+   margin-left: 60px;
+}
+
+.main{
+    background-image: url('https://lh3.googleusercontent.com/proxy/S3iuUxPBSQgb4P7f-DIZB56U5smFiCuoGECFKuco0Dp8WXlbxeES1DV0G_WaUFGChCl0smviw1Q9dWOAeLyeuFve4gwqYXP9JyG-6aGy9UYfTBUvptFnr-cefG6_rI9MPlEJcYmJ2fA8CFbxqLhV6hxpVY6ePkL7hw');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

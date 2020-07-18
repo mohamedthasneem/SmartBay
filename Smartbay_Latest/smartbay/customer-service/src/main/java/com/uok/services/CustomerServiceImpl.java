@@ -69,7 +69,20 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Order addOrder(Order order){
+        List<Product> productList = null;
         try{
+            productList = order.getProductList();
+            for(Product product : productList){
+                if(product.getQuantity() < product.getProductQuantity()){
+                    product.setQuantity(0);
+                }else {
+                    product.setQuantity(product.getQuantity() - product.getProductQuantity());
+                }
+                productRepository.save(product);
+
+            }
+            order.setStatus("PENDING");
+            order.setDelivered(false);
             orderRepository.save(order);
             logger.info("Create order Success");
         }catch(Exception e){

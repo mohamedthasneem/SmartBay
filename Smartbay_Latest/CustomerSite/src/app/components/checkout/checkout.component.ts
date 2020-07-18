@@ -23,7 +23,9 @@ export class CheckoutComponent implements OnInit,AfterViewChecked {
     "lastName" : "",
     "email" : "",
     "billingAddress" : "",
-    "productList" : null
+    "productList" : null,
+    "orderDate" : null,
+    "totalAmount" : 0
   }
 
 
@@ -36,6 +38,7 @@ export class CheckoutComponent implements OnInit,AfterViewChecked {
   }
 
   addOrder(){
+    this.order.totalAmount = this.cartTotal;
     this.customerService.createOrder(this.order).subscribe(data =>{
       data = this.order;
     });  
