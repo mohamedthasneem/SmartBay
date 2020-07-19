@@ -1,9 +1,10 @@
+<!--
 <div class="py-5">
   <div class="row">
     <div class="col-md-6 mx-auto">
       <span class="anchor" id="formLogin"></span>
 
-      <!-- form card login -->
+      
       <div class="card rounded-0">
         <div class="card-header">
           <h3 class="mb-0">Register</h3>
@@ -33,11 +34,92 @@
             <button type="button" (click)="signup()" class="btn btn-primary float-right">Register</button>
           </form>
         </div>
-        <!--/card-block-->
+       
       </div>
-      <!-- /form card login -->
+
 
     </div>
 
   </div>
+</div>
+-->
+<div class="main">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+
+
+  <div id="first">
+    <div class="myform form ">
+     <div class="logo mb-3">
+       <div class="col-md-12 text-center">
+        <h1>signup</h1>
+       </div>
+          </div>
+             <form action="" method="post" name="login">
+                     <div class="form-group">
+                        <label for="uname">Username</label>
+                         <input type="text" 
+                         id="inputUsername" 
+                         name="inputUsername" 
+                         class="form-control rounded-0" 
+                         [(ngModel)]="storeowner.username" 
+                         required autofocus>
+                     </div>
+
+                     <div class="form-group">
+                      <label for="uemail">Email</label>
+                      <input type="email" 
+                      id="inputEmail" 
+                      name="inputEmail" 
+                      class="form-control rounded-0" 
+                      [(ngModel)]="storeowner.email" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="uaddress">Shop Name</label>
+                      <input type="text" 
+                      id="inputShopName" 
+                      name="inputShopName" 
+                      class="form-control rounded-0" 
+                      [(ngModel)]="storeowner.shopName" 
+                      required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Shop URL</label>
+                      <input type="text" 
+                      id="inputShopURL" 
+                      name="inputShopURL" 
+                      class="form-control rounded-0"
+                       [(ngModel)]="storeowner.shopURL"
+                        required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" 
+                      id="inputPassword" 
+                      name="inputPassword" 
+                      class="form-control rounded-0" 
+                      [(ngModel)]="storeowner.password" 
+                      required autofocus>
+                    </div>
+
+                     <div class="form-group">
+                        <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                     </div>
+                     <div class="col-md-12 text-center ">
+                        <button type="submit" (click)="signup()" class=" btn btn-block mybtn btn-primary tx-tfm">sign up</button>
+                     </div>
+                     
+                    
+                  </form>
+           
+  </div>
+</div>
+
+</div>
+</div>
+</div>
 </div>

@@ -30,8 +30,14 @@ def getDataFrame():
     data = request.json['idList']
     print(data)
 
-    connection = pymongo.MongoClient('localhost',27017)
+    #connection = pymongo.MongoClient('localhost',27017)
+    #database = connection['smartbay_db']
+
+    #spring.data.mongodb.uri=
+
+    connection = pymongo.MongoClient('mongodb://admin:admin123@cluster0-shard-00-00.nqium.mongodb.net:27017,cluster0-shard-00-01.nqium.mongodb.net:27017,cluster0-shard-00-02.nqium.mongodb.net:27017/test?replicaSet=atlas-9lgxv8-shard-0&ssl=true&authSource=admin')
     database = connection['smartbay_db']
+
     ratings_collection = database['ratings']
     products_collection = database['products']
 
@@ -78,9 +84,11 @@ def getDataFrame():
             recPr = products.sort_values( ["similarity"], ascending = False )[1:2]
             recPr['productId'] = recPr['productId'].astype(str).astype(float)
             y = recPr.iat[0,0]
-            x.append(y)
-            print(x)
-            print(y)
+
+            if y not in x:
+                x.append(y)
+            #print(x)
+            #print(y)
         #print("Recommended movies based on your choice of ",user_inp[i] ,": \n", products.sort_values( ["similarity"], ascending = False )[1:2])
         #print(product['productId'])
     except:

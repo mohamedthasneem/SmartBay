@@ -1,5 +1,17 @@
-.py-5{
-    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-simple-gradient-e-commerce-web-page-image_20835.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
+.myform{
+    position: relative;
+		display: -ms-flexbox;
+		display: flex;
+		padding: 1rem;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		width: 100%;
+		pointer-events: auto;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid rgba(0,0,0,.2);
+		border-radius: 1.1rem;
+		outline: 0;
+		max-width: 500px;
+         }
+         

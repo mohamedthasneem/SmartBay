@@ -1,6 +1,7 @@
 import { Component, OnInit, Input,AfterViewChecked} from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { CustomerService } from 'src/app/services/customer.service';
+import { Router } from '@angular/router';
 
 declare let paypal: any;
 
@@ -29,7 +30,7 @@ export class CheckoutComponent implements OnInit,AfterViewChecked {
   }
 
 
-  constructor(private customerService : CustomerService) { }
+  constructor(private customerService : CustomerService, private router : Router) { }
 
   ngOnInit(): void {
     this.cartItems = this.customerService.getProductFromCart();
@@ -41,6 +42,9 @@ export class CheckoutComponent implements OnInit,AfterViewChecked {
     this.order.totalAmount = this.cartTotal;
     this.customerService.createOrder(this.order).subscribe(data =>{
       data = this.order;
+      localStorage.removeItem('product');
+      this.router.navigate(['/products'])
+
     });  
   }
 
