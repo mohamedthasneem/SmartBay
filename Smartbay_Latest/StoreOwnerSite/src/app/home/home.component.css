@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .slide1
+  {
+    color:#51ebde;
+    margin-top: -5px;
+  }
+  .font
+  {
+    font-family: 'Fondamento', cursive;
+  }
+
+  .txt_img
+  {
+      text-align: center;
+    font-family: 'Fondamento', cursive;
+    color: rgb(253, 253, 253);
+    margin-top: 75px;
+    font-size: 40px;
+  }
+  .make
+  {
+      /* background-color: rgb(155, 204, 76); */
+      color: rgb(107, 109, 219);
+      font-size: 40px;
+      margin-left: 35px;
+      font-weight: bold;
+  }
+  .list-group-item:hover
+  {
+     background-color: blue; 
+     color: white;
+  
+  }
+  .font_li
+  {
+      font-size: 35;
+      color: rgb(80, 160, 214);
+      font-family: sans-serif;
+      /* font-size: ; */
+
+  }
+  /* .col-lg-3
+  {
+      padding-left: 15px;
+      /* margin-left: 15px; */
+  /* }  */
+  .help
+  {
+    color: rgb(107, 215, 219);
+    font-size: 40px;
+    /* margin-left: 35px; */
+    font-weight: bold;
+  }

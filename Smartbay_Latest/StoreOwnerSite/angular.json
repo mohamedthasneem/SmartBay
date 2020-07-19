@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "StoreOwnerSite"
+    }
+  },
+  "defaultProject": "StoreOwnerSite",
+  "cli": {
+    "analytics": "fd566db0-f20b-4c6a-83ff-9ce29f63647b"
+  }
 }
